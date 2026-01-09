@@ -3,25 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project Gallery</title>
+<title>My Portfolio</title>
 <style>
   body {
     font-family: Arial, sans-serif;
-    background: #f5f5f5;
     margin: 0;
     padding: 0;
+    background: #f5f5f5;
   }
 
-  .gallery {
+  header {
+    background: #333;
+    color: white;
     padding: 20px;
-    position: relative;
-  }
-
-  .gallery h2 {
     text-align: center;
-    margin-bottom: 15px;
   }
 
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background: #444;
+    padding: 10px 0;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+  }
+
+  section {
+    padding: 40px 20px;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  /* Gallery styles */
   .gallery-wrapper {
     display: flex;
     align-items: center;
@@ -42,20 +62,15 @@
     z-index: 10;
   }
 
-  .scroll-left {
-    left: 0;
-  }
-
-  .scroll-right {
-    right: 0;
-  }
+  .scroll-left { left: 0; }
+  .scroll-right { right: 0; }
 
   .gallery-grid {
     display: flex;
     gap: 10px;
     overflow-x: auto;
     scroll-behavior: smooth;
-    padding: 10px 40px; /* add padding for buttons */
+    padding: 10px 40px;
   }
 
   .gallery-item {
@@ -72,11 +87,9 @@
     object-fit: cover;
   }
 
-  .gallery-item:hover {
-    transform: scale(1.05);
-  }
+  .gallery-item:hover { transform: scale(1.05); }
 
-  /* Fullscreen Modal */
+  /* Fullscreen modal */
   #fullscreenModal {
     display: none;
     position: fixed;
@@ -104,22 +117,53 @@
     color: white;
     cursor: pointer;
   }
+
+  /* Contact section */
+  .contact-info {
+    text-align: center;
+    font-size: 18px;
+    line-height: 2;
+  }
+
 </style>
 </head>
 <body>
 
-<section class="gallery">
+<header>
+  <h1>Marvin Nator Portfolio</h1>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p style="text-align:center;">Hi! I'm Marvin, a 4th-year IT student. I love creating web and software projects that are interactive and visually appealing.</p>
+</section>
+
+<section id="projects" class="gallery">
   <h2>Project Gallery</h2>
   <div class="gallery-wrapper">
     <button class="scroll-btn scroll-left">&#10094;</button>
     <div class="gallery-grid">
       <div class="gallery-item"><img src="images/Tutorial.png" alt="Image 1"></div>
-      <div class="gallery-item"><img src="images/FireEX.png" alt="Disaster Simulation"></div>
-      <div class="gallery-item"><img src="images/FireEXUse.png" alt="Wayfinding System"></div>
+      <div class="gallery-item"><img src="images/FireEx.png" alt="Disaster Simulation"></div>
+      <div class="gallery-item"><img src="images/FireExUse.png" alt="Wayfinding System"></div>
       <div class="gallery-item"><img src="images/FireDuring.png" alt="Emergency Instructions"></div>
       <div class="gallery-item"><img src="images/FireDuring2.png" alt="Disaster Simulation"></div>
     </div>
     <button class="scroll-btn scroll-right">&#10095;</button>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Me</h2>
+  <div class="contact-info">
+    <p>Email: marvinnator64@gmail.com</p>
+    <p>Facebook: <a href="https://www.facebook.com/fbname" target="_blank">Marvin</a></p>
   </div>
 </section>
 
@@ -130,6 +174,7 @@
 </div>
 
 <script>
+  // Scroll buttons
   const galleryGrid = document.querySelector('.gallery-grid');
   const scrollLeftBtn = document.querySelector('.scroll-left');
   const scrollRightBtn = document.querySelector('.scroll-right');
@@ -142,7 +187,7 @@
     galleryGrid.scrollBy({ left: 250, behavior: 'smooth' });
   });
 
-  // Fullscreen functionality
+  // Fullscreen modal
   const galleryItems = document.querySelectorAll('.gallery-item img');
   const modal = document.getElementById('fullscreenModal');
   const modalImg = document.getElementById('modalImg');
