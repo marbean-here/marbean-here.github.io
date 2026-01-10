@@ -97,6 +97,43 @@ nav a:hover {
   text-align: center;
 }
 
+/* HERO SIDE-BY-SIDE LAYOUT */
+.hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  max-width: 1200px;
+  padding: 0 20px;
+  text-align: left;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+/* IMAGE SHOULD NOT BE CENTERED ANYMORE */
+.profile-wrapper {
+  margin-bottom: 0;
+  justify-content: flex-start;
+}
+
+/* RESPONSIVE: STACK ON SMALL SCREENS */
+@media (max-width: 900px) {
+  .hero-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .hero-content {
+    text-align: center;
+  }
+
+  .profile-wrapper {
+    justify-content: center;
+  }
+}
+
 .hero-content {
   max-width: 700px;
   padding: 0 20px;
@@ -248,24 +285,31 @@ footer {
 </header>
 
 <section class="hero" id="home">
-  <div class="hero-content fade-in">
+  <div class="hero-inner fade-in">
 
-    <!-- PROFILE PICTURE ADDED HERE -->
+    <!-- LEFT SIDE PICTURE -->
     <div class="profile-wrapper">
       <div class="profile-pic">
-        <img src="images/Messenger_creation_8B3B05AD-7AA9-4661-9B30-273B0230F097.jpeg" alt="Marvin Picture">
+        <img src="images/marvin.jpg" alt="Marvin Picture">
       </div>
     </div>
 
-    <h2>Hi, I'm <span>Marvin</span></h2>
-    <p>IT Student & Aspiring Developer passionate about building interactive applications, games, and smart systems.</p>
+    <!-- RIGHT SIDE TEXT -->
+    <div class="hero-content">
+      <h2>Hi, I'm <span>Marvin</span></h2>
+      <p>
+        IT Student & Aspiring Developer passionate about building interactive applications,
+        games, and smart systems.
+      </p>
 
-    <div class="hero-buttons">
-      <button class="btn btn-primary" onclick="scrollToProjects()">View Projects</button>
-      <a href="images/MyResume.pdf" download>
-        <button class="btn btn-outline">Download CV</button>
-      </a>
+      <div class="hero-buttons">
+        <button class="btn btn-primary" onclick="scrollToProjects()">View Projects</button>
+        <a href="images/MyResume.pdf" download>
+          <button class="btn btn-outline">Download CV</button>
+        </a>
+      </div>
     </div>
+
   </div>
 </section>
 
