@@ -1,1 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pen Vending Machine | Marvin Nator</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+}
+
+header {
+  padding: 20px 60px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+}
+
+header a {
+  color: #00e5ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+section {
+  padding: 100px 60px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.1);
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin: 5px 5px 0 0;
+  font-size: 0.8rem;
+}
+
+.overview, .features, .gallery, .tech, .role, .challenges, .learning {
+  margin-top: 60px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #00e5ff;
+}
+
+p {
+  font-weight: 300;
+  line-height: 1.8;
+  max-width: 900px;
+}
+
+ul {
+  margin-left: 20px;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* ================= GALLERY ================= */
+
+.gallery-wrapper {
+  position: relative;
+}
+
+.gallery-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 50px;
+}
+
+.gallery-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.gallery-grid::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.3);
+  border-radius: 10px;
+}
+
+.gallery-item {
+  flex: 0 0 auto;
+  width: 260px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Scroll buttons */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  border: none;
+  color: white;
+  font-size: 30px;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.scroll-left { left: 0; }
+.scroll-right { right: 0; }
+
+/* ================= FULLSCREEN MODAL ================= */
+
+#fullscreenModal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#fullscreenModal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 15px;
+}
+
+#closeModal {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+/* CTA */
+.cta {
+  margin-top: 80px;
+  padding: 50px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 25px;
+  text-align: center;
+}
+
+.cta a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 30px;
+  border-radius: 30px;
+  background: #00e5ff;
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+footer {
+  text-align: center;
+  padding: 40px;
+  opacity: 0.7;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  header, section {
+    padding: 20px 30px;
+  }
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">← Back to Home</a>
+</header>
+
+<section class="hero">
+  <h1>Pen Vending Machine (Arduino + Flutter)</h1>
+  <p>A prototype mobile-controlled pen vending machine where the admin can remotely add credit and dispense pens using a Flutter app connected via Bluetooth to Arduino hardware.</p>
+  <div style="margin-top:20px;">
+    <span class="badge">Arduino</span>
+    <span class="badge">Flutter</span>
+    <span class="badge">Bluetooth</span>
+    <span class="badge">IoT</span>
+    <span class="badge">Hardware Prototype</span>
+  </div>
+</section>
+  
+<section class="overview">
+  <h2>Project Overview</h2>
+  <p>
+    A mobile-controlled pen vending machine prototype using Arduino and Flutter. The system integrates hardware components (LCD, servo motor, buzzer, and button) with a mobile app for the admin. The admin can add credits and remotely dispense pens via Bluetooth.
+  </p>
+</section>
+
+
+
+<section class="features">
+  <h2>Key Features</h2>
+  <ul>
+    <li>Hardware prototype includes LCD, buzzer, push button, and servo motor for pen dispensing.</li>
+    <li>Mobile app (Flutter) allows the admin to add credit and dispense pens remotely.</li>
+    <li>Bluetooth connectivity using HC-05 module for real-time communication.</li>
+    <li>Simple and intuitive admin interface for managing the vending machine.</li>
+    <li>System ensures safe and controlled dispensing of pens.</li>
+  </ul>
+</section>
+
+<section class="gallery">
+  <h2>Project Gallery</h2>
+
+  <div class="gallery-wrapper">
+    <button class="scroll-btn scroll-left">&#10094;</button>
+
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="images/Tutorial.png"></div>
+      <div class="gallery-item"><img src="images/FireEX.png"></div>
+      <div class="gallery-item"><img src="images/FireEXUse.png"></div>
+      <div class="gallery-item"><img src="images/FireDuring.png"></div>
+      <div class="gallery-item"><img src="images/FireDuring2.png"></div>
+      <div class="gallery-item"><img src="images/Typhoon1.png"></div>
+      <div class="gallery-item"><img src="images/Typhoon2.png"></div>
+      <div class="gallery-item"><img src="images/Typhoon3.png"></div>
+      <div class="gallery-item"><img src="images/Typhoon4.png"></div>
+      <div class="gallery-item"><img src="images/Typhoon5.png"></div>
+      <div class="gallery-item"><img src="images/Typhoon6.png"></div>
+      <div class="gallery-item"><img src="images/Typhoon7.png"></div>
+      <div class="gallery-item"><img src="images/Earthquake.png"></div>
+      <div class="gallery-item"><img src="images/Earthquake2.png"></div>
+      <div class="gallery-item"><img src="images/Earthquake3.png"></div>
+    </div>
+
+    <button class="scroll-btn scroll-right">&#10095;</button>
+  </div>
+</section>
+
+<section class="tech">
+  <h2>Technology Stack</h2>
+  <ul>
+    <li>Arduino IDE / C++</li>
+    <li>Flutter / Dart</li>
+    <li>Bluetooth (HC-05 module)</li>
+    <li>LCD Display)</li>
+    <li>Servo Motor & Buzzer</li>
+  </ul>
+</section>
+
+<section class="role">
+  <h2>My Role</h2>
+  <p>
+    Designed and built the full system, including hardware prototype design, Arduino programming, and Flutter mobile app development. Every aspect, from coding to hardware integration.
+  </p>
+</section>
+
+<section class="challenges">
+  <h2>Challenges & Solutions</h2>
+  <ul>
+    <li>
+      Integrating Arduino hardware with mobile app — solved by using HC-05 Bluetooth module for communication.
+    </li>
+    <li>
+      Ensuring accurate servo operation — calibrated servo motor to dispense a single pen reliably.
+    </li>
+    <li>
+      User interface design — created an intuitive Flutter app that clearly shows credit balance and dispense button.
+    </li>
+    <li>
+      Managing real-time updates — handled synchronization between app and hardware using Bluetooth commands.
+    </li>
+  </ul>
+</section>
+
+<section class="learning">
+  <h2>What I Learned</h2>
+  <ul>
+    <li>Microcontroller programming with Arduino (C/C++).</li>
+    <li>Flutter app development and connecting it to hardware via Bluetooth.</li>
+    <li>Integrating multiple hardware components (LCD, servo, buzzer, button) into a single functional prototype.</li>
+    <li>Designing a functional IoT system for real-time remote control.</li>
+    <li>Troubleshooting communication and timing issues between hardware and mobile app.</li>
+  </ul>
+</section>
+
+
+<section class="cta">
+  <h2>Interested in this project?</h2>
+  <a href="mailto:marvinnator64@gmail.com">Contact Me</a>
+</section>
+
+<footer>
+  © 2026 Marvin Nator • Project Portfolio
+</footer>
+
+<!-- FULLSCREEN MODAL -->
+<div id="fullscreenModal">
+  <span id="closeModal">&times;</span>
+  <img id="modalImg">
+</div>
+
+<script>
+const galleryGrid = document.querySelector('.gallery-grid');
+document.querySelector('.scroll-left').onclick = () =>
+  galleryGrid.scrollBy({ left: -300, behavior: 'smooth' });
+document.querySelector('.scroll-right').onclick = () =>
+  galleryGrid.scrollBy({ left: 300, behavior: 'smooth' });
+
+const modal = document.getElementById('fullscreenModal');
+const modalImg = document.getElementById('modalImg');
+
+document.querySelectorAll('.gallery-item img').forEach(img => {
+  img.onclick = () => {
+    modal.style.display = 'flex';
+    modalImg.src = img.src;
+  };
+});
+
+document.getElementById('closeModal').onclick = () =>
+  modal.style.display = 'none';
+
+modal.onclick = e => {
+  if (e.target === modal) modal.style.display = 'none';
+};
+</script>
+
+</body>
+</html>
 
