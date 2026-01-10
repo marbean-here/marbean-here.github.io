@@ -166,6 +166,35 @@
     .scroll-left { left: 10px; }
     .scroll-right { right: 10px; }
 
+    /* ================= FULLSCREEN MODAL ================= */
+#fullscreenModal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#fullscreenModal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 16px;
+  box-shadow: 0 0 40px rgba(0, 229, 255, 0.4);
+}
+
+#closeModal {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: #00e5ff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
     @media (max-width: 768px) {
       header, section {
         padding: 20px;
@@ -199,6 +228,33 @@
         font-size: 22px;
       }
     }
+
+    footer {
+  padding: 30px;
+  text-align: center;
+  background: rgba(0,0,0,0.4);
+  color: rgba(255,255,255,0.7);
+  font-size: 0.85rem;
+    }
+
+    .cta a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 28px;
+  background: #00e5ff;
+  color: #000;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cta a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,229,255,0.4);
+}
+
+  
   </style>
 </head>
 
@@ -239,7 +295,7 @@
   </section>
 
   <section class="gallery">
-    <h2>Project Gallery ng mama mo</h2>
+    <h2>Project Gallery</h2>
     <div class="gallery-wrapper">
       <button class="scroll-btn scroll-left">&#10094;</button>
       <div class="gallery-grid">
