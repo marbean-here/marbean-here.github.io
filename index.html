@@ -266,6 +266,79 @@ footer {
     width: 100%;
   }
 }
+/* PROJECTS SECTION */
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 60px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  padding: 35px 30px;
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  transition: 0.35s ease;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #00e5ff, #7f7cff);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.project-card:hover::before {
+  opacity: 0.12;
+}
+
+.project-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 55px rgba(0, 229, 255, 0.3);
+}
+
+.project-icon {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+.project-card h4 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #00e5ff;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+.project-tag {
+  display: inline-block;
+  padding: 6px 16px;
+  font-size: 0.75rem;
+  border-radius: 999px;
+  background: rgba(0, 229, 255, 0.15);
+  color: #00e5ff;
+  font-weight: 600;
+}
+
+
+
 </style>
 </head>
 
@@ -341,23 +414,41 @@ footer {
 
 <section id="projects">
   <div class="container fade-in">
-    <h3 style="text-align:center; margin-bottom:40px;">Featured Projects</h3>
+    <h3 class="section-title">Featured Projects</h3>
 
-    <div class="cards">
-      <a href="Internship-Placement-Tracking.html" class="card-link">
-        <div class="card">Internship & Placement System</div>
+    <div class="projects-grid">
+
+      <a href="Internship-Placement-Tracking.html" class="project-card">
+        <div class="project-icon">💼</div>
+        <h4>Internship & Placement System</h4>
+        <p>
+          Web-based platform for managing internship and job applications with admin control.
+        </p>
+        <span class="project-tag">Web App</span>
       </a>
 
-      <a href="vending-machine.html" class="card-link">
-        <div class="card">Pen Vending Machine</div>
+      <a href="vending-machine.html" class="project-card">
+        <div class="project-icon">🤖</div>
+        <h4>Pen Vending Machine</h4>
+        <p>
+          Arduino-powered vending machine integrated with a mobile app via Bluetooth.
+        </p>
+        <span class="project-tag">IoT</span>
       </a>
 
-      <a href="vr-disaster.html" class="card-link">
-        <div class="card">VR Disaster Preparedness</div>
+      <a href="vr-disaster.html" class="project-card">
+        <div class="project-icon">🕶️</div>
+        <h4>VR Disaster Preparedness</h4>
+        <p>
+          Immersive VR simulation that teaches disaster awareness and response.
+        </p>
+        <span class="project-tag">VR / Unity</span>
       </a>
+
     </div>
   </div>
 </section>
+
 
 
 <footer id="contact">
