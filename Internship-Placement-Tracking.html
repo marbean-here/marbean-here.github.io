@@ -1,1 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Internship & Placement Tracking System | Marvin Nator</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+  body { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); color: #fff; }
+  header { padding: 20px 60px; position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(10px); z-index: 100; }
+  header a { color: #00e5ff; text-decoration: none; font-weight: 500; }
+  section { padding: 100px 60px; }
+  .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+  .badge { display: inline-block; background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; margin: 5px 5px 0 0; font-size: 0.8rem; }
+  .overview, .features, .gallery, .tech, .role, .challenges, .learning { margin-top: 60px; }
+  h2 { margin-bottom: 20px; color: #00e5ff; }
+  p { font-weight: 300; line-height: 1.8; max-width: 900px; }
+  ul { margin-left: 20px; line-height: 1.8; font-weight: 300; }
+  
+  /* Gallery styles */
+  .gallery-wrapper { display: flex; align-items: center; position: relative; }
+  .scroll-btn { background: rgba(0,0,0,0.5); border: none; color: white; font-size: 30px; cursor: pointer; padding: 10px; border-radius: 50%; position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; }
+  .scroll-left { left: 0; }
+  .scroll-right { right: 0; }
+  .gallery-grid { display: flex; gap: 10px; overflow-x: auto; scroll-behavior: smooth; padding: 10px 40px; }
+  .gallery-item { flex: 0 0 auto; width: 200px; cursor: pointer; transition: transform 0.3s; border-radius: 10px; overflow: hidden; background: rgba(255,255,255,0.1); }
+  .gallery-item img { width: 100%; height: auto; object-fit: cover; }
+  .gallery-item:hover { transform: scale(1.05); }
 
+  /* Fullscreen modal */
+  #fullscreenModal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; z-index: 1000; }
+  #fullscreenModal img { max-width: 90%; max-height: 90%; border-radius: 10px; }
+  #closeModal { position: absolute; top: 20px; right: 30px; font-size: 40px; color: white; cursor: pointer; }
+
+  /* CTA section */
+  .cta { margin-top: 80px; padding: 50px; background: rgba(255,255,255,0.08); border-radius: 25px; text-align: center; }
+  .cta a { display: inline-block; margin-top: 20px; padding: 12px 30px; border-radius: 30px; background: #00e5ff; color: #000; text-decoration: none; font-weight: 500; }
+
+  footer { text-align: center; padding: 40px; opacity: 0.7; font-size: 0.85rem; }
+
+  @media (max-width: 768px) { header, section { padding: 20px 30px; } .hero h1 { font-size: 2.2rem; } }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html">← Back to Home</a>
+</header>
+
+<section class="hero">
+  <h1>Internship and Placement Tracking System</h1>
+  <p>A web-based system for students to find internships or placements and track their applications, while allowing admins to manage data efficiently.</p>
+  <div style="margin-top:20px;">
+    <span class="badge">PHP</span>
+    <span class="badge">HTML</span>
+    <span class="badge">CSS</span>
+    <span class="badge">JavaScript</span>
+    <span class="badge">MySQL/XAMPP</span>
+    <span class="badge">Web Application</span>
+  </div>
+</section>
+
+<section class="overview">
+  <h2>Project Overview</h2>
+  <p>
+    This system allows students to browse available internship and placement opportunities, submit applications, and track their status. Admins can manage student accounts, company data, post new opportunities, and approve or reject applications. The platform ensures organized and efficient management of applications while providing students with an easy-to-use interface for career opportunities.
+  </p>
+</section>
+
+<section class="features">
+  <h2>Key Features</h2>
+  <ul>
+    <li>Students can view and search for internship and placement opportunities.</li>
+    <li>Students can track the status of their applications (pending, accepted, rejected).</li>
+    <li>Admins can manage student accounts and company data.</li>
+    <li>Admins can post new internship and placement opportunities.</li>
+    <li>Admins can accept or reject student applications.</li>
+    <li>User-friendly dashboards for both students and admins.</li>
+  </ul>
+</section>
+
+<section class="gallery">
+  <h2>Project Gallery</h2>
+  <div class="gallery-wrapper">
+    <button class="scroll-btn scroll-left">&#10094;</button>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="images/dashboard.png" alt="Admin Dashboard"></div>
+      <div class="gallery-item"><img src="images/student_view.png" alt="Student View"></div>
+      <div class="gallery-item"><img src="images/application_status.png" alt="Application Status"></div>
+      <div class="gallery-item"><img src="images/company_management.png" alt="Company Management"></div>
+      <div class="gallery-item"><img src="images/new_posting.png" alt="New Posting"></div>
+    </div>
+    <button class="scroll-btn scroll-right">&#10095;</button>
+  </div>
+</section>
+
+<section class="role">
+  <h2>My Role</h2>
+  <p>
+    I was the sole developer of this project. I designed and implemented the full system, including database design, backend logic, front-end interface, and user role management for both students and admins.
+  </p>
+</section>
+
+<section class="challenges">
+  <h2>Challenges & Solutions</h2>
+  <ul>
+    <li>Managing database relationships – solved by creating clear MySQL tables for students, companies, internships, placements, and applications.</li>
+    <li>Maintaining application data consistency – implemented validation and proper CRUD operations.</li>
+    <li>Ensuring interface clarity – designed separate dashboards for students and admins to avoid confusion.</li>
+  </ul>
+</section>
+
+<section class="learning">
+  <h2>What I Learned</h2>
+  <ul>
+    <li>Full-stack web development using PHP, MySQL, JavaScript, HTML, and CSS.</li>
+    <li>Database design and management with XAMPP/MySQL.</li>
+    <li>Implementing user roles and permissions in a web application.</li>
+    <li>Handling dynamic data and application logic for tracking submissions.</li>
+    <li>Designing user-friendly interfaces for multiple types of users.</li>
+  </ul>
+</section>
+
+<section class="cta">
+  <h2>Interested in this project?</h2>
+  <p>Feel free to contact me if you want a demo, walkthrough, or more technical details.</p>
+  <a href="mailto:marvinnator64@gmail.com">Contact Me</a>
+</section>
+
+<!-- Fullscreen modal -->
+<div id="fullscreenModal">
+  <span id="closeModal">&times;</span>
+  <img id="modalImg" src="">
+</div>
+
+<footer>
+  © 2026 Marvin Nator • Project Portfolio
+</footer>
+
+<script>
+  // Scroll buttons
+  const galleryGrid = document.querySelector('.gallery-grid');
+  const scrollLeftBtn = document.querySelector('.scroll-left');
+  const scrollRightBtn = document.querySelector('.scroll-right');
+
+  scrollLeftBtn.addEventListener('click', () => {
+    galleryGrid.scrollBy({ left: -250, behavior: 'smooth' });
+  });
+
+  scrollRightBtn.addEventListener('click', () => {
+    galleryGrid.scrollBy({ left: 250, behavior: 'smooth' });
+  });
+
+  // Fullscreen modal
+  const galleryItems = document.querySelectorAll('.gallery-item img');
+  const modal = document.getElementById('fullscreenModal');
+  const modalImg = document.getElementById('modalImg');
+  const closeModal = document.getElementById('closeModal');
+
+  galleryItems.forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      modalImg.src = img.src;
+    });
+  });
+
+  closeModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  modal.addEventListener('click', (e) => {
+    if(e.target === modal) modal.style.display = 'none';
+  });
+</script>
+
+</body>
+</html>
