@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
+    /* Reset and font */
     * {
       margin: 0;
       padding: 0;
@@ -23,17 +24,24 @@
       overflow-x: hidden;
     }
 
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Header */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 60px;
+      padding: 15px 40px;
       position: fixed;
       width: 100%;
       top: 0;
       background: rgba(0,0,0,0.3);
       backdrop-filter: blur(10px);
       z-index: 100;
+      flex-wrap: wrap;
     }
 
     header h1 {
@@ -41,11 +49,15 @@
       font-weight: 600;
     }
 
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 5px;
+    }
+
     nav a {
-      margin-left: 30px;
-      text-decoration: none;
-      color: #fff;
-      font-weight: 300;
+      margin-left: 20px;
+      font-weight: 400;
       transition: 0.3s;
     }
 
@@ -53,6 +65,7 @@
       color: #00e5ff;
     }
 
+    /* Hero Section */
     .hero {
       height: 100vh;
       display: flex;
@@ -63,7 +76,7 @@
     }
 
     .hero-content h2 {
-      font-size: 3rem;
+      font-size: 2.8rem;
       font-weight: 700;
       margin-bottom: 15px;
     }
@@ -80,17 +93,21 @@
     }
 
     .hero-buttons {
-      margin-top: 30px;
+      margin-top: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
     }
 
     .btn {
       padding: 12px 28px;
       border-radius: 30px;
       border: none;
-      margin: 0 10px;
       font-size: 0.9rem;
       cursor: pointer;
       transition: 0.3s;
+      min-width: 150px;
     }
 
     .btn-primary {
@@ -113,6 +130,7 @@
       color: #000;
     }
 
+    /* Sections */
     section {
       padding: 100px 60px;
     }
@@ -121,7 +139,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 40px;
-      align-items: center;
+      align-items: start;
     }
 
     .about h3 {
@@ -138,19 +156,19 @@
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
+      gap: 25px;
     }
 
     .card {
       background: rgba(255,255,255,0.08);
-      padding: 30px;
+      padding: 25px;
       border-radius: 20px;
       transition: transform 0.3s, background 0.3s;
       cursor: pointer;
     }
 
     .card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-8px);
       background: rgba(255,255,255,0.15);
     }
 
@@ -161,15 +179,15 @@
 
     footer {
       text-align: center;
-      padding: 40px;
+      padding: 40px 20px;
       font-size: 0.85rem;
       opacity: 0.7;
     }
 
-    /* Animation */
+    /* Fade-in animation */
     .fade-in {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px);
       animation: fadeIn 1s forwards;
     }
 
@@ -180,21 +198,52 @@
       }
     }
 
+    /* Media Queries - Mobile */
     @media (max-width: 900px) {
-      .about {
-        grid-template-columns: 1fr;
-      }
-
       header {
-        padding: 20px 30px;
+        flex-direction: column;
+        align-items: flex-start;
       }
 
-      section {
-        padding: 80px 30px;
+      nav {
+        margin-top: 10px;
+      }
+
+      nav a {
+        margin: 10px 10px 0 0;
       }
 
       .hero-content h2 {
         font-size: 2.2rem;
+      }
+
+      .hero-content p {
+        font-size: 0.95rem;
+      }
+
+      section {
+        padding: 70px 20px;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .hero-content h2 {
+        font-size: 1.8rem;
+      }
+
+      .btn {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+        min-width: 120px;
       }
     }
   </style>
@@ -220,7 +269,7 @@
       <div class="hero-buttons">
         <button class="btn btn-primary" onclick="scrollToProjects()">View Projects</button>
         <a href="images/MyResume.pdf" download>
-            <button class="btn btn-outline">Download CV</button>
+          <button class="btn btn-outline">Download CV</button>
         </a>
       </div>
     </div>
@@ -275,13 +324,12 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <!-- Footer / Contact -->
   <footer id="contact">
     <h3 style="margin-bottom:15px;">Contact Me</h3>
-    <p>Email: <a href="mailto:marvinnator64@gmail.com" style="color:#00e5ff; text-decoration:none;">marvinnator64@gmail.com</a></p>
-    <p>Facebook: <a href="https://www.facebook.com/Marvin Nator" target="_blank" style="color:#00e5ff; text-decoration:none;">Marvin Nator</a></p>
-    <p>Phone: <a href="tel:09506759373" style="color:#00e5ff; text-decoration:none;">0950 675 9373</a></p>
+    <p>Email: <a href="mailto:marvinnator64@gmail.com" style="color:#00e5ff;">marvinnator64@gmail.com</a></p>
+    <p>Facebook: <a href="https://www.facebook.com/Marvin Nator" target="_blank" style="color:#00e5ff;">Marvin Nator</a></p>
+    <p>Phone: <a href="tel:09506759373" style="color:#00e5ff;">0950 675 9373</a></p>
     <br>
     <p style="font-size:0.8rem; opacity:0.7;">© 2026 Marvin Nator • Portfolio Website</p>
   </footer>
