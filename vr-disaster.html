@@ -1,212 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Portfolio</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VR Disaster Preparedness | Marvin Nator</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f5f5f5;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+}
+
+header {
+  padding: 20px 60px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+}
+
+header a {
+  color: #00e5ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+section {
+  padding: 100px 60px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.1);
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin: 5px 5px 0 0;
+  font-size: 0.8rem;
+}
+
+.overview, .features, .gallery, .tech, .role, .challenges, .learning {
+  margin-top: 60px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #00e5ff;
+}
+
+p {
+  font-weight: 300;
+  line-height: 1.8;
+  max-width: 900px;
+}
+
+ul {
+  margin-left: 20px;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* ================= GALLERY ================= */
+
+.gallery-wrapper {
+  position: relative;
+}
+
+.gallery-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 50px;
+}
+
+.gallery-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.gallery-grid::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.3);
+  border-radius: 10px;
+}
+
+.gallery-item {
+  flex: 0 0 auto;
+  width: 260px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Scroll buttons */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  border: none;
+  color: white;
+  font-size: 30px;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.scroll-left { left: 0; }
+.scroll-right { right: 0; }
+
+/* ================= FULLSCREEN MODAL ================= */
+
+#fullscreenModal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#fullscreenModal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 15px;
+}
+
+#closeModal {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+/* CTA */
+.cta {
+  margin-top: 80px;
+  padding: 50px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 25px;
+  text-align: center;
+}
+
+.cta a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 30px;
+  border-radius: 30px;
+  background: #00e5ff;
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+footer {
+  text-align: center;
+  padding: 40px;
+  opacity: 0.7;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  header, section {
+    padding: 20px 30px;
   }
-
-  header {
-    background: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
+  .hero h1 {
+    font-size: 2.2rem;
   }
-
-  nav {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    background: #444;
-    padding: 10px 0;
-  }
-
-  nav a {
-    color: white;
-    text-decoration: none;
-  }
-
-  section {
-    padding: 40px 20px;
-  }
-
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  /* Gallery styles */
-  .gallery-wrapper {
-    display: flex;
-    align-items: center;
-    position: relative;
-  }
-
-  .scroll-btn {
-    background: rgba(0,0,0,0.5);
-    border: none;
-    color: white;
-    font-size: 30px;
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-  }
-
-  .scroll-left { left: 0; }
-  .scroll-right { right: 0; }
-
-  .gallery-grid {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding: 10px 40px;
-  }
-
-  .gallery-item {
-    flex: 0 0 auto;
-    width: 200px;
-    cursor: pointer;
-    transition: transform 0.3s;
-  }
-
-  .gallery-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    object-fit: cover;
-  }
-
-  .gallery-item:hover { transform: scale(1.05); }
-
-  /* Fullscreen modal */
-  #fullscreenModal {
-    display: none;
-    position: fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background: rgba(0,0,0,0.9);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-
-  #fullscreenModal img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 10px;
-  }
-
-  #closeModal {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 40px;
-    color: white;
-    cursor: pointer;
-  }
-
-  /* Contact section */
-  .contact-info {
-    text-align: center;
-    font-size: 18px;
-    line-height: 2;
-  }
-
+}
 </style>
 </head>
+
 <body>
 
 <header>
-  <h1>Marvin Nator Portfolio</h1>
+  <a href="index.html">← Back to Home</a>
 </header>
 
-<nav>
-  <a href="#about">About</a>
-  <a href="#projects">Projects</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<section id="about">
-  <h2>About Me</h2>
-  <p style="text-align:center;">Hi! I'm Marvin, a 4th-year IT student. I love creating web and software projects that are interactive and visually appealing.</p>
+<section class="hero">
+  <h1>VR Disaster Preparedness Simulation</h1>
+  <p>An immersive Unity-based VR application designed to teach students how to respond during campus disasters.</p>
+  <div style="margin-top:20px;">
+    <span class="badge">Unity</span>
+    <span class="badge">C#</span>
+    <span class="badge">VR</span>
+    <span class="badge">3D Simulation</span>
+  </div>
 </section>
 
-<section id="projects" class="gallery">
+<section class="overview">
+  <h2>Project Overview</h2>
+  <p>
+    This project focuses on disaster preparedness by simulating real-life emergency scenarios inside a virtual school campus.
+  </p>
+</section>
+
+<section class="features">
+  <h2>Key Features</h2>
+  <ul>
+    <li>Interactive VR campus navigation</li>
+    <li>Fire, earthquake, flood, and typhoon simulations</li>
+    <li>Guided instructions with subtitles and visual cues</li>
+    <li>Wayfinding system with directional arrows</li>
+    <li>Realistic 3D environment</li>
+  </ul>
+</section>
+
+<section class="gallery">
   <h2>Project Gallery</h2>
+
   <div class="gallery-wrapper">
     <button class="scroll-btn scroll-left">&#10094;</button>
+
     <div class="gallery-grid">
-      <div class="gallery-item"><img src="images/Tutorial.png" alt="Image 1"></div>
-      <div class="gallery-item"><img src="images/FireEx.png" alt="Disaster Simulation"></div>
-      <div class="gallery-item"><img src="images/FireExUse.png" alt="Wayfinding System"></div>
-      <div class="gallery-item"><img src="images/FireDuring.png" alt="Emergency Instructions"></div>
-      <div class="gallery-item"><img src="images/FireDuring2.png" alt="Disaster Simulation"></div>
+      <div class="gallery-item"><img src="images/Tutorial.png"></div>
+      <div class="gallery-item"><img src="images/FireEX.png"></div>
+      <div class="gallery-item"><img src="images/FireEXUse.png"></div>
+      <div class="gallery-item"><img src="images/FireDuring.png"></div>
+      <div class="gallery-item"><img src="images/FireDuring2.png"></div>
+      <div class="gallery-item"><img src="images/Typhoon1.png"></div>
+      <div class="gallery-item"><img src="images/Typhoon2.png"></div>
+      <div class="gallery-item"><img src="images/Typhoon3.png"></div>
+      <div class="gallery-item"><img src="images/Typhoon4.png"></div>
+      <div class="gallery-item"><img src="images/Typhoon5.png"></div>
+      <div class="gallery-item"><img src="images/Typhoon6.png"></div>
+      <div class="gallery-item"><img src="images/Typhoon7.png"></div>
     </div>
+
     <button class="scroll-btn scroll-right">&#10095;</button>
   </div>
 </section>
 
-<section id="contact">
-  <h2>Contact Me</h2>
-  <div class="contact-info">
-    <p>Email: marvinnator64@gmail.com</p>
-    <p>Facebook: <a href="https://www.facebook.com/fbname" target="_blank">Marvin</a></p>
-  </div>
+<section class="tech">
+  <h2>Technology Stack</h2>
+  <ul>
+    <li>Unity Engine</li>
+    <li>C# scripting</li>
+    <li>VR Interaction Toolkit</li>
+  </ul>
 </section>
 
-<!-- Fullscreen modal -->
+<section class="role">
+  <h2>My Role</h2>
+  <p>I designed and implemented the VR interactions, scenarios, and wayfinding system.</p>
+</section>
+
+<section class="cta">
+  <h2>Interested in this project?</h2>
+  <a href="mailto:marvinnator64@gmail.com">Contact Me</a>
+</section>
+
+<footer>
+  © 2026 Marvin Nator • Project Portfolio
+</footer>
+
+<!-- FULLSCREEN MODAL -->
 <div id="fullscreenModal">
   <span id="closeModal">&times;</span>
-  <img id="modalImg" src="">
+  <img id="modalImg">
 </div>
 
 <script>
-  // Scroll buttons
-  const galleryGrid = document.querySelector('.gallery-grid');
-  const scrollLeftBtn = document.querySelector('.scroll-left');
-  const scrollRightBtn = document.querySelector('.scroll-right');
+const galleryGrid = document.querySelector('.gallery-grid');
+document.querySelector('.scroll-left').onclick = () =>
+  galleryGrid.scrollBy({ left: -300, behavior: 'smooth' });
+document.querySelector('.scroll-right').onclick = () =>
+  galleryGrid.scrollBy({ left: 300, behavior: 'smooth' });
 
-  scrollLeftBtn.addEventListener('click', () => {
-    galleryGrid.scrollBy({ left: -250, behavior: 'smooth' });
-  });
+const modal = document.getElementById('fullscreenModal');
+const modalImg = document.getElementById('modalImg');
 
-  scrollRightBtn.addEventListener('click', () => {
-    galleryGrid.scrollBy({ left: 250, behavior: 'smooth' });
-  });
+document.querySelectorAll('.gallery-item img').forEach(img => {
+  img.onclick = () => {
+    modal.style.display = 'flex';
+    modalImg.src = img.src;
+  };
+});
 
-  // Fullscreen modal
-  const galleryItems = document.querySelectorAll('.gallery-item img');
-  const modal = document.getElementById('fullscreenModal');
-  const modalImg = document.getElementById('modalImg');
-  const closeModal = document.getElementById('closeModal');
+document.getElementById('closeModal').onclick = () =>
+  modal.style.display = 'none';
 
-  galleryItems.forEach(img => {
-    img.addEventListener('click', () => {
-      modal.style.display = 'flex';
-      modalImg.src = img.src;
-    });
-  });
-
-  closeModal.addEventListener('click', () => {
-    modal.style.display = 'none';
-  });
-
-  modal.addEventListener('click', (e) => {
-    if(e.target === modal) modal.style.display = 'none';
-  });
+modal.onclick = e => {
+  if (e.target === modal) modal.style.display = 'none';
+};
 </script>
 
 </body>
