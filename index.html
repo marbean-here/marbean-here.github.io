@@ -584,7 +584,12 @@
                         </div>
 
                         <!-- RIGHT SIDE: CONTACT FORM -->
-                        <form class="contact-form" id="contact-form">
+                        <form
+                            class="contact-form"
+                            id="contact-form"
+                            action="https://formspree.io/f/maeenogq"
+                            method="POST"
+                        >
 
                             <h3>Send me a message</h3>
 
@@ -779,6 +784,49 @@
             startAutoSlide();
         });
 
+
+            const contactForm = document.getElementById("contact-form");
+            const formStatus = document.getElementById("form-status");
+            
+            contactForm.addEventListener("submit", async function (event) {
+                event.preventDefault();
+            
+                const submitButton = contactForm.querySelector(
+                    'button[type="submit"]'
+                );
+            
+                const originalButtonText = submitButton.innerHTML;
+            
+                submitButton.disabled = true;
+                submitButton.innerHTML = "Sending...";
+                formStatus.textContent = "";
+            
+                try {
+                    const response = await fetch(contactForm.action, {
+                        method: "POST",
+                        body: new FormData(contactForm),
+                        headers: {
+                            Accept: "application/json"
+                        }
+                    });
+            
+                    if (response.ok) {
+                        formStatus.textContent =
+                            "Thank you! Your message has been sent.";
+            
+                        contactForm.reset();
+                    } else {
+                        formStatus.textContent =
+                            "Failed to send your message. Please try again.";
+                    }
+                } catch (error) {
+                    formStatus.textContent =
+                        "Connection error. Please check your internet and try again.";
+                } finally {
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonText;
+                }
+            });
         </script>
 
     </body>
